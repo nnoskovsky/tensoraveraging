@@ -8,3 +8,4 @@ at these points. Find the average value.
  (<((\V_abcd)^2)>)^(1/2)
 
  Usage monte-carlo.py : python monte-carlo.py -n 200000
+       tensor_averaging.py: python tensor_averaging.py
