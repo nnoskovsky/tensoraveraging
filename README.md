@@ -6,3 +6,5 @@ It should be noted that if the expression were not root mean square, but average
 The condition of the problem itself: Select four random points A, B, C, D on a unit sphere in three dimensions (uniformly distributed across the area and independent of each other). Let \V_ABCD be the volume of the tetrahedron with vertices
 at these points. Find the average value.
  (<((\V_abcd)^2)>)^(1/2)
+
+ Usage monte-carlo.py : python monte-carlo.py -n 200000
