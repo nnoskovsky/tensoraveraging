@@ -3,18 +3,18 @@ import math
 import statistics
 
 def random_point_on_sphere():
-    # Равномерная точка на S^2: нормальный вектор и нормировка
+
     v = np.random.normal(size=3)
     return v / np.linalg.norm(v)
 
 def tetrahedron_volume(a, b, c, d):
-    # V = |det(b-a, c-a, d-a)| / 6
-    mat = np.stack([b - a, c - a, d - a], axis=1)  # матрица 3x3
+
+    mat = np.stack([b - a, c - a, d - a], axis=1) 
     det = np.linalg.det(mat)
     return abs(det) / 6.0
 
 def main():
-    n = 100000  # число испытаний
+    n = 100000 
     vols = []
     for _ in range(n):
         A = random_point_on_sphere()
@@ -32,3 +32,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
