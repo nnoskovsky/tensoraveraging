@@ -1,0 +1,38 @@
+The tensor_averaging.py script literally implements tensor convolution \e_ijk*\e_pqr*\delta_ip*\delta_jq*\delta_kr
+(\e_something - Levi-Civita symbol )
+
+and outputs the result.
+Let us denote a random vector on the sphere by 
+𝑋.
+The distribution is isotropic and even, therefore: E\𝑋_i=0 ; E\𝑋_i*𝑋_j=λ*\delta_ij
+Since 
+∣𝑋∣^2=1, then 1=E∣𝑋∣^2=E*∑(i=1 to 3)*(\𝑋_i)^2=3λ=>λ=1/3
+Lets find E*det(A,B,C)^2 for 3 independent points A,B,C
+det(A,B,C)=\e_ijk*\A_i*\B_j*\C_k , then
+E*det(A,B,C)^2=E(\e_ijk*\A_i*\B_j*\C_k*\e_pqr*\A_p*\B_q*\C_r)=\e_ijk*\e_pqr*E[\A_i*\A_p]*E[\B_j*\B_q)*E[\C_k*\C_r]=\e_ijk*\e_pqr*λ*\delta_jq*λ*\delta_kr=(λ^3)*\e_ijk*\e_ijk
+We know that \e_ijk*\e_ijk = 3! = 6, in that case, E*det(A,B,C)^2=(λ^3)*6=((1/3)^3)*6=2/9
+
+Now tetrahedron's ABCD volume
+Let U = B - A , V = C - A , W = D - A
+Then \V_ABCD=(1/6)|det(U,V,W)|
+We use the multilinearity of the determinant: det(U,V,W)=det(B,C,D) - det(A,C,D) + det(A,B,D) - det(A,B,C)
+\X_1=det(B,C,D)
+\X_2=det(A,C,D)
+\X_3=det(A,B,D)
+\X_4=det(A,B,C)
+Then det(U,V,W)=\X_1 -\X_2 + \X_3 - \X_4
+
+
+Lets find E[det(U,V,W)^2]: 
+          E[det(U,V,W)^2] = ∑(form i=1 to 4)*E[(\X_i)^2] +2∑(i<j)*\s_i*\s_j*E[\X_i*\X_j]
+where \s_i=±1 - symbols.
+Every \X_i - determinant of three independent isotropic points , and thats why E[(\X_i)^2]=2/9
+Mixed moments E[\X_i*\X_j] when i≠j equals 0 because in a work, there is always a vector (A, B, C, or D) that appears in an odd degree, and EX=0
+Then
+E[det(U,V,W)^2]=4*(2/9)=8/9
+Let's move on to volume:
+\V_abcd=(1/6)*|det(U,V,W)|, (\V_ABCD)^2=(1/36)*det(U,V,W)^2
+From here
+E((\V_ABCD)^2)=(1/36)E[det(U,V,W)^2]=(1/36)E[det(U,V,W)^2]=(1/36)*(8/9)=2/81
+And finally:
+sqrt(E*(\V_abcd^2))=sqrt(2/81)=sqrt(2)/9
